@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">Fatsomascan Authtest</string>
     <string name="button_fblogin">Login with Facebook</string>
+    <string name="button_fblogout">Logout from Facebook</string>
     <string name="title_activity_display_facebook_details">Facebook Details</string>
 </resources>

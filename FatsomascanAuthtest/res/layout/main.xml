@@ -4,11 +4,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/button_fblogin"
-    android:onClick="fbLogin"
-    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_fblogin"
+        android:onClick="fbLogin"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_fblogout"
+        android:onClick="fbLogout"
+        />
 </LinearLayout>
-

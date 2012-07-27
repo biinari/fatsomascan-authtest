@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import com.facebook.android.*;
 import com.facebook.android.Facebook.*;
+import java.util.*;
 
 public class DisplayFacebookDetailsActivity extends Activity {
     @Override
@@ -15,7 +16,8 @@ public class DisplayFacebookDetailsActivity extends Activity {
         // Get the values from the intent
         Intent intent = getIntent();
         Bundle values = intent.getBundleExtra(MainActivity.EXTRA_FB_VALUES);
-        String details = values.toString();
+        Set keys = values.keySet();
+        String details = keys.toString();
 
         // Put in a text view
         TextView textView = new TextView(this);
