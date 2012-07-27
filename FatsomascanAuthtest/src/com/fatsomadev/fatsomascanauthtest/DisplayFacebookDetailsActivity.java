@@ -20,13 +20,9 @@ public class DisplayFacebookDetailsActivity extends Activity {
         String details = "";
         String empty = "";
 
-        try {
-            for (String key : keys) {
-                details += "key: " + key + "\n";
-                    details += values.getString(key, empty) + "\n";
-            }
-        } catch (Exception e) {
-            details += e.getMessage();
+        for (String key : keys) {
+            details += "key: " + key + "\n";
+            //details += values.getString(key, empty) + "\n";
         }
 
         if (values.containsKey("access_token")) {
