@@ -11,6 +11,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DisplayFacebookDetailsActivity"
+            android:label="@string/title_activity_display_facebook_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fatsomadev.fatsomascanauthtest.MainActivity" />
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
