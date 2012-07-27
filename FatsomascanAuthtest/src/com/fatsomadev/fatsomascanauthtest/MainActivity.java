@@ -43,7 +43,9 @@ public class MainActivity extends Activity {
 
         facebook.authorizeCallback(requestCode, resultCode, data);
 
-        Bundle values = data.getExtras();
+        Bundle values = new Bundle();
+        values.putString("access_token", facebook.getAccessToken());
+        values.putLong("access_expires", facebook.getAccessExpires());
         Intent intent = new Intent(this, DisplayFacebookDetailsActivity.class);
         intent.putExtra(EXTRA_FB_VALUES, values);
         startActivity(intent);
