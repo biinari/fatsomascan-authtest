@@ -17,7 +17,7 @@ public class DisplayFacebookDetailsActivity extends Activity {
         Intent intent = getIntent();
         Bundle values = intent.getBundleExtra(MainActivity.EXTRA_FB_VALUES);
         Set keys = values.keySet();
-        String details = keys.toString();
+        String details = "";
 
         // Put in a text view
         TextView textView = new TextView(this);
