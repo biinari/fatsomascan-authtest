@@ -118,7 +118,11 @@ public class MainActivity extends Activity {
             }
 
             @Override
-            public void onFacebookError(FacebookError e, Object state) {}
+            public void onFacebookError(FacebookError e, Object state) {
+                Toast.makeText(getApplicationContext(),
+                    "Error logging out: " + e.getMessage(),
+                    Toast.LENGTH_LONG).show();
+            }
         });
     }
 
