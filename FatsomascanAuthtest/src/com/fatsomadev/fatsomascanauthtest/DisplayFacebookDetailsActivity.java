@@ -16,8 +16,28 @@ public class DisplayFacebookDetailsActivity extends Activity {
         // Get the values from the intent
         Intent intent = getIntent();
         Bundle values = intent.getBundleExtra(MainActivity.EXTRA_FB_VALUES);
-        Set keys = values.keySet();
+        Set<String> keys = values.keySet();
         String details = "";
+        String empty = "";
+
+        try {
+            for (String key : keys) {
+                details += "key: " + key + "\n";
+                    details += values.getString(key, empty) + "\n";
+            }
+        } catch (Exception e) {
+            details += e.getMessage();
+        }
+
+        if (values.containsKey("access_token")) {
+            details += "\naccess_token = " + values.getString("access_token");
+        }
+        if (values.containsKey("expires_in")) {
+            details += "\nexpires_in = " + values.getString("expires_in");
+        }
+        if (values.containsKey("code")) {
+            details += "\ncode = " + values.getString("code");
+        }
 
         // Put in a text view
         TextView textView = new TextView(this);
