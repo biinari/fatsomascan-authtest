@@ -86,44 +86,46 @@ public class MainActivity extends Activity {
 
     /** Called when the user clicks the facebook logout button */
     public void fbLogout(View view) {
-        Utility.asyncRunner.logout(this, new RequestListener() {
-            @Override
-            public void onComplete(String response, Object state) {
-                Toast.makeText(getApplicationContext(),
-                    "Logged out from Facebook",
-                    Toast.LENGTH_SHORT).show();
-            }
+        if (Utility.facebook.isSessionValid()) {
+            Utility.asyncRunner.logout(this, new RequestListener() {
+                @Override
+                public void onComplete(String response, Object state) {
+                    Toast.makeText(getApplicationContext(),
+                        "Logged out from Facebook",
+                        Toast.LENGTH_SHORT).show();
+                }
 
-            @Override
-            public void onIOException(IOException e, Object state) {
-                Toast.makeText(getApplicationContext(),
-                    "Error logging out: " + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-            }
+                @Override
+                public void onIOException(IOException e, Object state) {
+                    Toast.makeText(getApplicationContext(),
+                        "Error logging out: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+                }
 
-            @Override
-            public void onFileNotFoundException(FileNotFoundException e,
-                                                Object state) {
-                Toast.makeText(getApplicationContext(),
-                    "Error logging out: " + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-            }
+                @Override
+                public void onFileNotFoundException(FileNotFoundException e,
+                                                    Object state) {
+                    Toast.makeText(getApplicationContext(),
+                        "Error logging out: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+                }
 
-            @Override
-            public void onMalformedURLException(MalformedURLException e,
-                                                Object state) {
-                Toast.makeText(getApplicationContext(),
-                    "Malformed logout URL: " + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-            }
+                @Override
+                public void onMalformedURLException(MalformedURLException e,
+                                                    Object state) {
+                    Toast.makeText(getApplicationContext(),
+                        "Malformed logout URL: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+                }
 
-            @Override
-            public void onFacebookError(FacebookError e, Object state) {
-                Toast.makeText(getApplicationContext(),
-                    "Error logging out: " + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
-            }
-        });
+                @Override
+                public void onFacebookError(FacebookError e, Object state) {
+                    Toast.makeText(getApplicationContext(),
+                        "Error logging out: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+                }
+            });
+        }
     }
 
     @Override
